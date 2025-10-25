@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f3f1fc;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .box {
+  background: white;
+  padding: 25px 40px;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(182, 153, 255, 0.2);
+}
+
+h1 {
+  background-color: #b196f0;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 30px;
+  width: 500px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.item input[type="text"] {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+}
+
+.item select {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.item button {
+  background-color: #b196f0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.item button:hover {
+  background-color: #a182f2;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #faf9ff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.task-item:hover {
+  background-color: #f1ecff;
+}
+
+.task-item input[type="checkbox"] {
+  transform: scale(1.4);
+  accent-color: #b196f0;
+  cursor: pointer;
+}
+
+.task-item p {
+  flex: 1;
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+}
+
+.inline-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inline-form input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 140px;
+  outline: none;
+}
+
+.edit-btn, .delete-btn {
+  background-color: #b196f0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #e07474;
+}
+
+.edit-btn:hover {
+  background-color: #a182f2;
+}
+
+.delete-btn:hover {
+  background-color: #d05b5b;
+}
+
+.filter {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.filter label {
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.filter select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+}
+
+footer {
+  background-color: #b196f0;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 15px;
+  margin-top: 50px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
