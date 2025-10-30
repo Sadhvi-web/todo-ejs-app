@@ -1,52 +1,58 @@
 const express = require("express");
-var app = express();
+const app = express();
 const port = 8080;
-app.set("view engine","ejs");
-app.use(express.static('public'))
-app.use(express.urlencoded({extended:true}));
 
-let todos = []; 
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+
+let todoList = []; 
+
 
 app.get("/", (req, res) => {
-  res.render("index", { todos: todos, filter: "All" });
+  res.render("index", { todos: todoList, filter: "All" });
 });
+
 
 app.post("/add", (req, res) => {
-  const task = req.body.task;
-  const priority = req.body.priority;
+  const { task, priority } = req.body;
 
-  if (task.trim() === "") {
-    return res.send("<script>alert('Task cannot be empty!'); window.location='/'</script>");
+  if (!task || task.trim() === "") {
+    return res.send("<script>alert('Please enter a task'); window.location='/'</script>");
   }
 
-  todos.push({ text: task, priority: priority });
+  todoList.push({ text: task.trim(), priority });
   res.redirect("/");
 });
+
 
 app.post("/delete", (req, res) => {
-  const index = req.body.index;
-  todos.splice(index, 1);
+  const id = req.body.index;
+  todoList.splice(id, 1);
   res.redirect("/");
 });
+
 
 app.post("/edit", (req, res) => {
-  const index = req.body.index;
-  const updatedTask = req.body.updatedTask;
-  if (updatedTask.trim() === "") {
-    return res.send("<script>alert('Task cannot be empty!'); window.location='/'</script>");
+  const id = req.body.index;
+  const newText = req.body.updatedTask;
+
+  if (!newText || newText.trim() === "") {
+    return res.send("<script>alert('Please enter valid text'); window.location='/'</script>");
   }
-  todos[index].text = updatedTask;
+
+  todoList[id].text = newText.trim();
   res.redirect("/");
 });
 
+
 app.post("/filter", (req, res) => {
-  const filter = req.body.priorityFilter;
-  let filteredTodos =
-    filter === "All" ? todos : todos.filter((t) => t.priority === filter);
-  res.render("index", { todos: filteredTodos, filter: filter });
+  const selected = req.body.priorityFilter;
+  const visibleTasks = selected === "All" ? todoList : todoList.filter(t => t.priority === selected);
+  res.render("index", { todos: visibleTasks, filter: selected });
 });
 
 
-app.listen(port,function(){
-    console.log("server started on port " + port);
-})
+app.listen(port, () => {
+  console.log(`Server is running at port ${port}`);
+});
